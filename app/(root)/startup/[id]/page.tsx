@@ -28,8 +28,6 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
     }),
   ])
 
-  console.log('editorPosts', editorPosts)
-
   if (!post) return notFound()
 
   const parsedContent = md.render(post?.pitch || "")

@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { Toaster } from "@/components/ui/toaster";
 import localFont from "next/font/local"
 import "./globals.css"
 import "easymde/dist/easymde.min.css"
@@ -68,6 +69,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={workSans.variable} suppressHydrationWarning>
         {children}
+        <Toaster />
       </body>
     </html>
   )

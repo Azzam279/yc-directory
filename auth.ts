@@ -22,7 +22,7 @@ export const config = {
   ],
   callbacks: {
     async signIn({
-      user: { id, name, email, image},
+      user: { id, name, email, image },
     }) {
       const existingUser = await client
         .withConfig({ useCdn: false })

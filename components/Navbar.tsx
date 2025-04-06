@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
+import { BadgePlus, LogOut } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import Link from "next/link"
 import Image from "next/image"
@@ -49,17 +50,19 @@ const Navbar = () => {
             <>
               <Link href="/startup/create">
                 <span className="max-sm:hidden">Create</span>
+                <BadgePlus className="size-6 sm:hidden" />
               </Link>
 
               <button type='button' onClick={() => signOut()} className='outline_btn'>
-                Logout
+                <span className="max-sm:hidden">Logout</span>
+                <LogOut className="size-6 sm:hidden text-red-500" />
               </button>
 
-              <Link href={`/user/${session?.id ?? ''}`}>
+              <Link href={`/user/${session?.id}`}>
                 <Avatar className="size-10">
                   <AvatarImage
-                    src={session?.user?.image || ""}
-                    alt={session?.user?.name || ""}
+                    src={session?.user?.image || ''}
+                    alt={session?.user?.name || ''}
                   />
                   <AvatarFallback>AV</AvatarFallback>
                 </Avatar>
